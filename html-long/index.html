@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="libs/bootstrap-4.3.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="style/main.css" />
+</head>
+
+<body>
+
+  <div id="wrapper">
+
+
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+  <li>
+<a data-naviation="user-list-screen" href="#" class="toggle-naviation ">users</a>
+        </li>
+    <li>
+      <a data-naviation="patient-list-screen" href="#" class="toggle-naviation">patients</a>
+     </li>
+       <li>
+           <a href="script:void(0)">log out</a>
+      </li>
+            
+        </ul>
+    </div>
+
+
+    <!-- Page Content -->
+    <div class="container" >
+
+        <!--****************************** (PatientList screen)  ***************************************--> 
+          <div class="patient-list-screen Screen col ">
+        <div class="row">
+          <div class="col-3">
+                <h1>Patients </h1>
+              </div>
+              <div class="col-8"></div>
+              <div class="col">
+       <a href="#patient-edit-screen" class="toggle-naviation btn btn-primary emptyForm"data-naviation="patient-edit-screen">
+                  Add</a>
+                </div>
+                </div>
+
+            <div >
+              <table class="table table-striped table-hover">
+                <tbody class="dataTabl" >
+                <tr>
+                  <th>id</th>
+                  <th>name</th>
+                  <th>email</th>
+                  <th>gender</th>
+                  <th>DOB</th>
+                  <th>Active</th>
+                  <th>Creation</th>
+                  <th>opration</th>
+                </tr>
+              </tbody>
+              </table>
+            </div>
+   
+   
+          </div>
+          
+
+        <!--****************************** (PatientEdit screen )  ***************************************--> 
+         <div class="patient-edit-screen hidden Screen col">
+              <h1 l1>Patient (New) : </h1>
+      
+              <form id="nameform"  data-id="-1"  data-naviation="patient-list-screen">
+                <div class="row">
+                <div class="col">
+                <div  class="form-group row">
+                
+                  <label for="imputFirstname" class="col-sm-2 col-form-label">first Name</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="firstName form-control" placeholder="first Name"required>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="imputFirstname" class="col-sm-2 col-form-label">middleName</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="middleName form-control" placeholder="middleName">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="imputFirstname" class="col-sm-2 col-form-label">lastName</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="lastName form-control" placeholder="last Name" required>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="imputFirstname" class="col-sm-2 col-form-label">Date of Birth</label>
+                  <div class="col-sm-10">
+                    <input type="date" class="DOB form-control" required>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+      
+                <div class="form-group row">
+                  <label for="imputFirstname" class="col-sm-2 col-form-label">last Check</label>
+                  <div class="col-sm-10">
+                    <input type="date" class="lastCheck form-control" required>
+                  </div>
+                </div>
+                <div class="form-group row" >
+                  <label for="imputFirstname" class="col-sm-2 col-form-label" >Email</label>
+                  <div class="col-sm-10">
+                    <input type="email" class="email form-control"  placeholder="Email" required>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="imputFirstname" class="col-sm-2 col-form-label">Status</label>
+                  <div class="col-sm-10">
+                    <select id="Status" class="Status form-control " autofocus required>
+                      <option value="0" id="Draft">Draft</option>
+                      <option value="1" id="Saved">Saved</option>
+                      <option value="2" id="Deleted">Deleted</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-sm-4">
+                    <label >gender</label>
+                  </div>
+                  <div class="col-sm-4">
+                  <input class="gender form-check-input" type="radio" name="genderRadio" id="maleRadio" value="male"  required>
+                  <label class="form-check-label" for="gridRadios1">
+                    Male
+                   </label>
+                      </div>
+                      <div class="col-sm-4">
+                        <input class="gender form-check-input" type="radio" name="genderRadio" id="femaleRadio" value="female">
+                        <label class="form-check-label" for="gridRadios2">
+                          Female
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-2">Active</div>
+                <div class="col-sm-10">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="activeCheck" required>
+                   </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col">
+                  <button type="submit"  class="btn btn-primary">Save</button>
+            </form>
+      
+              
+            <button type="button"data-naviation="patient-list-screen" class="toggle-naviation btn btn-danger emptyForm">Cancle</button>
+            <template id="patient-template">
+              <tr class="tableData"> <td> {{ID}}</td> <td> {{fname}} {{mname}} {{lname}}</td>
+                <td>{{email}}</td>
+                <td>{{gender}}</td>
+                <td>{{DOB}}</td>
+                <td>{{Active}}</td>
+                <td>{{CreatedBy}}</td>
+                <td> <a type="button" href="#"  data-naviation="patient-edit-screen" data-id= "{{ID}}" class="toggle-naviation btn btn-danger col-6"> delete</a>
+                <a type="button" href="#"  data-naviation="patient-edit-screen" data-id= "{{ID}}" class="toggle-naviation edit left btn btn-primary col-6">edit</a> 
+                </td>
+                </tr>
+            </template>
+                </div>
+
+                 
+        <!--****************************** (UserList screen )  ***************************************--> 
+    
+          <div class="user-list-screen  hidden Screen col">
+            <h1>
+              Users
+            </h1>
+            <a href="#user-edit-screen" class="toggle-naviation btn btn-primary addbutton"
+              data-naviation="user-edit-screen">Add</a>
+          </div>
+        <!--****************************** (UserEdit screen )  ***************************************--> 
+    
+          <div class="user-edit-screen hidden  Screen col">
+            <h1>User edit</h1>
+          </div>
+    
+          </div>
+   
+
+</div>
+<script src="libs//jquery/jquery-3.4.1.min.js"></script>
+<script src="data/PatientModel.js"></script>
+<script src="app/util/RenderEngine.js"></script>
+<script src="data/patientData.js"></script>
+<script src="app/patients/PatientListScreen.js"></script>
+<script src="app/util/RouterEngine.js"></script>
+<script src="app/patients/PatientEditScreen.js"></script>
+<script src="app/main.js"></script>
+
+</body>
+
+
+
+
+
+
+
+
+
+</html>

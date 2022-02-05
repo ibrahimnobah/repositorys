@@ -1,0 +1,40 @@
+<template id="patientListTemplate">
+<div class="patient-list-screen Screen row ">
+    <div class="col-md-12">
+      <div>
+        <h1>Patients </h1>
+      </div>
+      <div class="row">
+        <div class="col-auto mr-auto"></div>
+
+        <div class="col-auto">
+          <a href="#patient-edit-screen" class="toggle-naviation btn btn-primary emptyForm"
+            data-naviation="patient-edit-screen">Add</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <table class="table table-striped table-hover .table-sm ">
+        <tr id="tableHeader">
+          <th>id</th>
+          <th>name</th>
+          <th>email</th>
+          <th>gender</th>
+          <th>DOB</th>
+          <th>Active</th>
+          <th>Creation</th>
+          <th>opration</th>
+        </tr>
+      </table>
+    </div>
+  </div>
+</template>
+
+
+
+
+
+
+
+<script src="app/patients/PatientEditScreen.js"></script>
+<script src="app/main.js"></script>
